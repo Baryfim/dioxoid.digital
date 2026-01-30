@@ -1,0 +1,282 @@
+.page {
+  min-height: 100vh;
+  background-color: rgb(250, 250, 249);
+  color: rgb(28, 25, 23);
+  padding-bottom: 10rem;
+  animation: fade-in 0.5s ease-out forwards;
+
+  :global(::selection) {
+    background-color: rgb(16, 185, 129);
+    color: white;
+  }
+}
+
+.header {
+  padding: 6rem 1.5rem 3rem;
+  border-bottom: 1px solid rgb(231, 229, 228);
+
+  @media (min-width: 768px) {
+    padding: 8rem 3rem 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(120, 113, 108);
+  margin-bottom: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  @media (min-width: 768px) {
+    margin-bottom: 3rem;
+  }
+}
+
+.backButton:hover {
+  color: rgb(28, 25, 23);
+}
+
+.backIcon {
+  transition: transform 0.2s ease;
+}
+
+.backButton:hover .backIcon {
+  transform: translateX(-0.25rem);
+}
+
+.backLabel {
+  font-size: 0.75rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.headerContent {
+  max-width: 56rem;
+}
+
+.headerMeta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.categoryBadge {
+  padding: 0.25rem 0.75rem;
+  background-color: rgb(231, 229, 228);
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgb(120, 113, 108);
+}
+
+.readTime {
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: rgb(168, 162, 158);
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.25rem;
+  color: rgb(28, 25, 23);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+
+  @media (min-width: 640px) {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 4.5rem;
+    line-height: 0.9;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 6rem;
+  }
+}
+
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgb(120, 113, 108);
+  border-top: 1px solid rgb(231, 229, 228);
+  padding-top: 2rem;
+}
+
+.bylineSeparator {
+  width: 1px;
+  height: 0.75rem;
+  background-color: rgb(214, 211, 209);
+}
+
+.hero {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: -10;
+  opacity: 1;
+
+  @media (min-width: 768px) {
+    height: 60vh;
+  }
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 0;
+  background-color: rgb(250, 250, 249);
+  position: relative;
+  z-index: 10;
+  margin-top: -5rem;
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.05);
+
+  @media (min-width: 768px) {
+    padding-top: 5rem;
+    margin-top: -8rem;
+  }
+}
+
+.leadQuote {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: rgb(120, 113, 108);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.body {
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: rgb(41, 37, 36);
+}
+
+.body p {
+  margin-bottom: 1.5rem;
+}
+
+.body h3 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.figure {
+  margin: 3rem 0;
+}
+
+.figurePlaceholder {
+  background-color: rgb(231, 229, 228);
+  height: 12rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(168, 162, 158);
+  font-family: monospace;
+  font-size: 0.875rem;
+  padding: 0 1rem;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    height: 16rem;
+  }
+}
+
+.figureCaption {
+  text-align: center;
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: rgb(120, 113, 108);
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.shareSection {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgb(231, 229, 228);
+}
+
+.shareTitle {
+  font-family: monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgb(168, 162, 158);
+  margin-bottom: 1.5rem;
+}
+
+.shareLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.shareButton {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgb(214, 211, 209);
+  text-underline-offset: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.shareButton:hover {
+  text-decoration-color: rgb(28, 25, 23);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

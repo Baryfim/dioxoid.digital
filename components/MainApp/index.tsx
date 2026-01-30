@@ -1,14 +1,16 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Preloader, FullScreenMenu, Nav, Footer } from './AppContent';
-import LandingPage from './pages/LandingPage';
-import WorkPage from './pages/WorkPage';
-import JournalPage from './pages/JournalPage';
-import ContactPage from './pages/ContactPage';
-import CaseStudyPage from './pages/CaseStudyPage';
-import ArticlePage from './pages/ArticlePage';
-import { ViewState } from '../types';
+import { Preloader, FullScreenMenu, Nav, Footer } from '../AppContent';
+import LandingPage from '../pages/LandingPage';
+import WorkPage from '../pages/WorkPage';
+import JournalPage from '../pages/JournalPage';
+import ContactPage from '../pages/ContactPage';
+import CaseStudyPage from '../pages/CaseStudyPage';
+import ArticlePage from '../pages/ArticlePage';
+import styles from './MainApp.module.scss';
+
+type ViewState = 'home' | 'work' | 'journal' | 'contact' | 'case-study' | 'article';
 
 // Custom Cursor Component
 const CustomCursor = () => {
@@ -61,14 +63,14 @@ const CustomCursor = () => {
     requestRef = requestAnimationFrame(animate);
 
     // Enhanced hover detection
-    const handleMouseOver = (e: MouseEvent) => {
+     const handleMouseOver = (e: MouseEvent) => {
        const target = e.target as HTMLElement;
        const isInteractive = target.matches('button, a, input, textarea, [role="button"]') ||
-                             target.closest('.cursor-hover') !== null ||
-                             target.closest('a') !== null ||
-                             target.closest('button') !== null;
+                      target.closest('[data-cursor-hover]') !== null ||
+                      target.closest('a') !== null ||
+                      target.closest('button') !== null;
        setIsHovering(!!isInteractive);
-    };
+     };
 
     const handleMouseDown = () => setIsClicked(true);
     const handleMouseUp = () => setIsClicked(false);
@@ -88,23 +90,13 @@ const CustomCursor = () => {
   }, []);
 
   return (
-    <div className="hidden md:block pointer-events-none fixed inset-0 z-[9999]">
-      {/* The Dot - Instant feedback */}
-      <div 
-        ref={dotRef} 
-        className="absolute w-1.5 h-1.5 bg-emerald-400 rounded-full mix-blend-difference will-change-transform top-0 left-0"
-      />
-      
-      {/* The Outline - Smooth Follow */}
+    <div className={styles.cursorContainer}>
+      <div ref={dotRef} className={styles.cursorDot} />
       <div 
         ref={cursorRef} 
-        className={`absolute top-0 left-0 border border-white/40 rounded-full mix-blend-difference will-change-transform transition-all duration-300 ease-out flex items-center justify-center
-        ${isHovering ? 'w-16 h-16 border-emerald-400 bg-emerald-500/10' : 'w-6 h-6'}
-        ${isClicked ? 'scale-75' : 'scale-100'}
-        `}
+        className={`${styles.cursorOutline} ${isHovering ? styles.hovering : ''} ${isClicked ? styles.clicked : ''}`}
       >
-        {/* Optional crosshair or center point when hovering */}
-        <div className={`w-0.5 h-0.5 bg-white/50 rounded-full transition-opacity duration-200 ${isHovering ? 'opacity-100' : 'opacity-0'}`} />
+        <div className={`${styles.centerDot} ${isHovering ? styles.visible : ''}`} />
       </div>
     </div>
   );
@@ -136,12 +128,12 @@ const MainApp: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-emerald-500 selection:text-black">
+    <div className={styles.mainApp}>
       <CustomCursor />
       <Preloader onComplete={() => setLoaded(true)} />
       
       {loaded && (
-        <div className="animate-fade-in">
+        <div className={styles.contentWrapper}>
           {currentView !== 'article' && (
              <Nav onNavigate={handleNavigate} onMenuOpen={() => setIsMenuOpen(true)} />
           )}

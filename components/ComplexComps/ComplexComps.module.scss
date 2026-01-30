@@ -1,0 +1,611 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+  .tooltipContent {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    color: white;
+    background-color: rgb(41, 37, 36);
+    border-radius: 0.25rem;
+    opacity: 0;
+    transition: opacity 200ms;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: -0.25rem;
+      border: 0.25rem solid transparent;
+      border-top-color: rgb(41, 37, 36);
+    }
+  }
+  
+  &:hover .tooltipContent {
+    opacity: 1;
+  }
+}
+
+.notificationBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: colors 0.3s;
+  
+  .badgeDot {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    margin-right: 0.5rem;
+  }
+  
+  &.neutral {
+    background-color: rgb(245, 245, 244);
+    color: rgb(120, 113, 108);
+    
+    .badgeDot {
+      background-color: rgb(168, 162, 158);
+    }
+  }
+  
+  &.success {
+    background-color: rgb(236, 253, 245);
+    color: rgb(87, 83, 78);
+    
+    .badgeDot {
+      background-color: rgba(16, 185, 129, 0.7);
+    }
+  }
+  
+  &.warning {
+    background-color: rgb(255, 251, 235);
+    color: rgb(87, 83, 78);
+    
+    .badgeDot {
+      background-color: rgba(245, 158, 11, 0.7);
+    }
+  }
+  
+  &.error {
+    background-color: rgb(255, 241, 242);
+    color: rgb(87, 83, 78);
+    
+    .badgeDot {
+      background-color: rgba(239, 68, 68, 0.7);
+    }
+  }
+}
+
+.progressBar {
+  width: 100%;
+  height: 0.25rem;
+  background-color: rgb(245, 245, 244);
+  border-radius: 9999px;
+  overflow: hidden;
+  
+  .progressFill {
+    height: 100%;
+    background: linear-gradient(to right, rgb(41, 37, 36), rgb(68, 64, 60), rgb(28, 25, 23));
+    border-radius: 9999px;
+    transition: width 1s ease-out;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+.alert {
+  position: relative;
+  overflow: hidden;
+  padding: 1.25rem 1.5rem;
+  padding-left: 1.25rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  border: 1px solid rgb(245, 245, 244);
+  box-shadow: 0 2px 12px -4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 300ms;
+  
+  &:hover {
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.08);
+  }
+  
+  .alertBorder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.25rem;
+    
+    &.info {
+      background-color: rgb(99, 102, 241);
+    }
+    
+    &.success {
+      background-color: rgb(16, 185, 129);
+    }
+    
+    &.warning {
+      background-color: rgb(245, 158, 11);
+    }
+    
+    &.error {
+      background-color: rgb(244, 63, 94);
+    }
+  }
+  
+  .alertContent {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .alertIcon {
+    padding-top: 0.125rem;
+    color: rgb(168, 162, 158);
+  }
+  
+  .alertText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .alertTitle {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(28, 25, 23);
+  }
+  
+  .alertDescription {
+    font-size: 0.875rem;
+    color: rgb(120, 113, 108);
+    line-height: 1.625;
+    max-width: 32rem;
+  }
+}
+
+.editorialNotification {
+  padding: 1.5rem;
+  background-color: white;
+  border: 1px solid rgb(245, 245, 244);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 300ms;
+  width: 100%;
+  
+  &:hover {
+    box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.08);
+  }
+  
+  .notificationHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  .category {
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgb(168, 162, 158);
+  }
+  
+  .time {
+    font-size: 0.75rem;
+    color: rgb(214, 211, 209);
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .notificationTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(28, 25, 23);
+    margin-bottom: 0.5rem;
+  }
+  
+  .notificationBody {
+    font-size: 0.875rem;
+    color: rgb(120, 113, 108);
+    line-height: 1.625;
+    border-left: 2px solid rgb(245, 245, 244);
+    padding-left: 0.75rem;
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  border: 1px dashed rgb(231, 229, 228);
+  border-radius: 1rem;
+  background-color: rgba(250, 250, 249, 0.3);
+  
+  .emptyIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1.25rem;
+    border-radius: 9999px;
+    background-color: white;
+    border: 1px solid rgb(245, 245, 244);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    color: rgb(214, 211, 209);
+  }
+  
+  .emptyTitle {
+    color: rgb(28, 25, 23);
+    font-weight: 500;
+    margin-bottom: 0.375rem;
+  }
+  
+  .emptyDescription {
+    color: rgb(120, 113, 108);
+    font-size: 0.875rem;
+    max-width: 16.25rem;
+    margin: 0 auto 1.5rem;
+    line-height: 1.625;
+  }
+  
+  button {
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+      background-color: white;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(245, 245, 244);
+  background-color: white;
+}
+
+.headerLogo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+  color: rgb(28, 25, 23);
+}
+
+.headerNav {
+  display: none;
+  align-items: center;
+  gap: 3rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.headerNavLink {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(120, 113, 108);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.headerNavUnderline {
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: rgb(28, 25, 23);
+  transition: width 0.3s ease;
+}
+
+.headerNavLink:hover {
+  color: rgb(28, 25, 23);
+}
+
+.headerNavLink:hover .headerNavUnderline {
+  width: 100%;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.headerSearchButton {
+  color: rgb(168, 162, 158);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.headerSearchButton:hover {
+  color: rgb(28, 25, 23);
+}
+
+.headerDivider {
+  width: 1px;
+  height: 1.5rem;
+  background-color: rgb(231, 229, 228);
+  display: none;
+
+  @media (min-width: 640px) {
+    display: block;
+  }
+}
+
+.headerMenuButton {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(28, 25, 23);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  @media (min-width: 640px) {
+    display: flex;
+  }
+}
+
+.headerMenuButton:hover {
+  color: rgb(87, 83, 78);
+}
+
+.headerMenuIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-end;
+}
+
+.headerMenuIcon span {
+  display: block;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.headerMenuIcon span:first-child {
+  width: 1rem;
+}
+
+.headerMenuIcon span:last-child {
+  width: 1.5rem;
+}
+
+.footer {
+  width: 100%;
+  background-color: white;
+  padding: 5rem 0 3rem;
+  border-top: 1px solid rgb(245, 245, 244);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+.footerBrand {
+  @media (min-width: 768px) {
+    grid-column: span 5;
+  }
+}
+
+.footerTitle {
+  font-size: clamp(3.75rem, 6vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: rgb(28, 25, 23);
+  line-height: 0.8;
+  margin-bottom: 2rem;
+}
+
+.footerSubtitle {
+  color: rgb(120, 113, 108);
+  max-width: 20rem;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.footerColumn {
+  @media (min-width: 768px) {
+    grid-column: span 2;
+  }
+}
+
+.footerHeading {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: rgb(168, 162, 158);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+}
+
+.footerList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footerLink {
+  color: rgb(28, 25, 23);
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: rgb(120, 113, 108);
+}
+
+.footerLegalLink {
+  color: rgb(120, 113, 108);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLegalLink:hover {
+  color: rgb(28, 25, 23);
+}
+
+.footerBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid rgb(245, 245, 244);
+  padding-top: 2rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.footerCopyright {
+  color: rgb(168, 162, 158);
+  font-size: 0.75rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.footerBackToTop {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgb(231, 229, 228);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+}
+
+.footerBackToTop:hover {
+  background-color: rgb(28, 25, 23);
+  color: white;
+}
+
+.sidebar {
+  width: 16rem;
+  min-height: 400px;
+  background-color: rgba(250, 250, 249, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.sidebarBrand {
+  margin-bottom: 3rem;
+}
+
+.sidebarLogo {
+  width: 2rem;
+  height: 2rem;
+  background-color: rgb(28, 25, 23);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.sidebarNavLink {
+  display: block;
+  font-size: 1.125rem;
+  color: rgb(168, 162, 158);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sidebarNavLink:hover {
+  color: rgb(87, 83, 78);
+}
+
+.sidebarNavLinkActive {
+  color: rgb(28, 25, 23);
+  font-weight: 500;
+}
+
+.sidebarFooter {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(231, 229, 228, 0.5);
+}
+
+.sidebarProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: rgb(120, 113, 108);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sidebarProfile:hover {
+  color: rgb(28, 25, 23);
+}
+
+.sidebarAvatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background-color: rgb(231, 229, 228);
+}

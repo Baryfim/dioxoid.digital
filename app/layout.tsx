@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import '../styles/globals.css';
+import '../styles/globals.scss';
+import styles from './layout.module.scss';
 
 export const metadata: Metadata = {
   title: 'Dioxoid - Digital Alchemy',
@@ -12,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={styles.html}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -20,11 +21,11 @@ export default function RootLayout({
       </head>
       <body>
         {/* Noise overlay */}
-        <div className="noise-wrapper">
-          <div className="noise-overlay"></div>
+        <div className={styles.noiseWrapper}>
+          <div className={styles.noiseOverlay}></div>
         </div>
         {/* Scanline effect */}
-        <div className="scanline"></div>
+        <div className={styles.scanline}></div>
         {children}
       </body>
     </html>

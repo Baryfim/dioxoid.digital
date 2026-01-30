@@ -1,0 +1,474 @@
+.page {
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+  min-height: 100vh;
+  background-color: black;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  animation: fade-in 0.5s ease-out forwards;
+
+  @media (min-width: 768px) {
+    padding-top: 8rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+.header {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2.5rem;
+
+  @media (min-width: 1280px) {
+    flex-direction: row;
+  }
+}
+
+.headerTitle {
+  margin-top: 1.5rem;
+  color: white;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @media (min-width: 1280px) {
+    width: auto;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    width: 16rem;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(87, 83, 78);
+  width: 1rem;
+  height: 1rem;
+  transition: color 0.2s ease;
+}
+
+.searchWrapper:focus-within .searchIcon {
+  color: rgb(16, 185, 129);
+}
+
+.searchInput {
+  width: 100%;
+  background-color: rgb(28, 25, 23);
+  border: 1px solid rgb(41, 37, 36);
+  border-radius: 0;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: white;
+  transition: border-color 0.2s ease;
+}
+
+.searchInput::placeholder {
+  color: rgb(87, 83, 78);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: rgb(16, 185, 129);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    width: auto;
+  }
+}
+
+.filterButton {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  flex-grow: 1;
+  background: transparent;
+
+  @media (min-width: 768px) {
+    padding: 0.75rem 1rem;
+    flex-grow: 0;
+  }
+}
+
+.filterButtonActive {
+  border-color: rgb(16, 185, 129);
+  color: black;
+  background-color: rgb(16, 185, 129);
+}
+
+.filterButtonInactive {
+  border-color: rgb(41, 37, 36);
+  color: rgb(120, 113, 108);
+}
+
+.filterButtonInactive:hover {
+  border-color: rgb(87, 83, 78);
+  color: white;
+}
+
+.viewToggle {
+  display: none;
+  border: 1px solid rgb(41, 37, 36);
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.viewToggleButton {
+  padding: 0.75rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.viewToggleButtonActive {
+  background-color: rgb(41, 37, 36);
+  color: white;
+}
+
+.viewToggleButtonInactive {
+  color: rgb(120, 113, 108);
+}
+
+.emptyState {
+  padding: 10rem 0;
+  text-align: center;
+  border-top: 1px solid rgb(28, 25, 23);
+}
+
+.emptyText {
+  color: rgb(120, 113, 108);
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.results {
+  transition: all 0.5s ease;
+}
+
+.resultsGrid {
+  display: grid;
+  gap: 3rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3rem;
+    row-gap: 6rem;
+  }
+}
+
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.workItem {
+  cursor: pointer;
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.workItemOffset {
+  @media (min-width: 768px) {
+    transform: translateY(6rem);
+  }
+}
+
+.gridImage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: rgb(28, 25, 23);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgb(41, 37, 36);
+  transition: border-color 0.2s ease;
+
+  @media (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.workItem:hover .gridImage {
+  border-color: rgb(68, 64, 60);
+}
+
+.gridImageOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(28, 25, 23, 0.4);
+  transition: background-color 0.7s ease;
+  z-index: 1;
+}
+
+.workItem:hover .gridImageOverlay {
+  background-color: transparent;
+}
+
+.gridImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  filter: grayscale(1);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+}
+
+.workItem:hover .gridImageImg {
+  transform: scale(1);
+  filter: grayscale(0);
+}
+
+.gridInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgb(41, 37, 36);
+  padding-bottom: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.workItem:hover .gridInfo {
+  border-color: rgb(120, 113, 108);
+}
+
+.gridTitle {
+  font-size: 1.5rem;
+  color: rgb(214, 211, 209);
+  margin-bottom: 0.25rem;
+  transition: color 0.2s ease;
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
+}
+
+.workItem:hover .gridTitle {
+  color: white;
+}
+
+.gridDesc {
+  font-size: 0.625rem;
+  font-family: monospace;
+  color: rgb(120, 113, 108);
+
+  @media (min-width: 768px) {
+    font-size: 0.75rem;
+  }
+}
+
+.gridMeta {
+  text-align: right;
+}
+
+.gridCategory {
+  display: block;
+  font-size: 0.75rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgb(120, 113, 108);
+  transition: color 0.2s ease;
+}
+
+.workItem:hover .gridCategory {
+  color: rgb(52, 211, 153);
+}
+
+.gridYear {
+  font-size: 0.625rem;
+  color: rgb(87, 83, 78);
+}
+
+.listRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgb(28, 25, 23);
+  transition: background-color 0.2s ease;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    padding: 3rem 0;
+  }
+
+  @media (min-width: 768px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+}
+
+.workItem:hover .listRow {
+  background-color: rgba(28, 25, 23, 0.2);
+}
+
+.listLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    gap: 3rem;
+  }
+}
+
+.listIndex {
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: rgb(120, 113, 108);
+}
+
+.listThumb {
+  width: 100%;
+  height: 10rem;
+  overflow: hidden;
+  background-color: rgb(28, 25, 23);
+  border: 1px solid rgb(41, 37, 36);
+
+  @media (min-width: 768px) {
+    width: 8rem;
+    height: 5rem;
+  }
+}
+
+.listThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  filter: grayscale(0);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+
+  @media (min-width: 768px) {
+    opacity: 0.5;
+    filter: grayscale(1);
+  }
+}
+
+.workItem:hover .listThumbImg {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.listTitle {
+  font-size: 1.5rem;
+  color: rgb(214, 211, 209);
+  transition: color 0.2s ease;
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
+}
+
+.workItem:hover .listTitle {
+  color: white;
+}
+
+.listRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+    width: auto;
+  }
+}
+
+.listDesc {
+  display: none;
+  font-size: 0.75rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgb(120, 113, 108);
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.listTag {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgb(41, 37, 36);
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgb(120, 113, 108);
+  transition: border-color 0.2s ease;
+}
+
+.workItem:hover .listTag {
+  border-color: rgb(87, 83, 78);
+}
+
+.listArrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgb(120, 113, 108);
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.workItem:hover .listArrow {
+  color: rgb(52, 211, 153);
+  transform: rotate(0deg);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
