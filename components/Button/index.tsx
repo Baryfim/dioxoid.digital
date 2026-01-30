@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { Loader2 } from 'lucide-react';
-import { Variant, Size } from '../types';
 import styles from './Button.module.scss';
+
+export type Variant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'link' | 'destructive';
+export type Size = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;

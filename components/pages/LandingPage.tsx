@@ -49,7 +49,7 @@ const Hero = ({ loaded, onNavigate }: { loaded: boolean, onNavigate: (view: View
                   <div key={i} className={styles.heroStatusBar} style={{ animationDelay: `${i*150}ms` }}></div>
                 ))}
              </div>
-             <ScrambleText text="ACCEPTING CLIENTS FOR Q4 2024" className={styles.heroLabel} trigger={loaded} delay={1800} />
+             <ScrambleText text="ПРИНИМАЕМ КЛИЕНТОВ НА Q4 2024" className={styles.heroLabel} trigger={loaded} delay={1800} />
           </div>
         </Reveal>
 
@@ -64,10 +64,10 @@ const Hero = ({ loaded, onNavigate }: { loaded: boolean, onNavigate: (view: View
            />
            
            <h1 className={styles.heroTitlePrimary} style={{ animationDelay: '500ms' }}>
-              DIGITAL
+              DIOXOID
            </h1>
            <h1 className={styles.heroTitleSecondary} style={{ animationDelay: '700ms' }}>
-              ALCHEMY
+              DIGITAL
            </h1>
         </div>
 
@@ -76,12 +76,12 @@ const Hero = ({ loaded, onNavigate }: { loaded: boolean, onNavigate: (view: View
               <Reveal delay={1400}>
                 <div className={styles.heroStatsList}>
                    <div className={styles.heroStatsRow}>
-                      <span>AVAILABLE</span>
-                      <span className={styles.heroStatsValue}>TRUE</span>
+                      <span>ДОСТУПЕН</span>
+                      <span className={styles.heroStatsValue}>ДА</span>
                    </div>
                    <div className={styles.heroStatsRow}>
-                      <span>LATENCY</span>
-                      <span>12ms</span>
+                      <span>ЗАДЕРЖКА</span>
+                      <span>12мс</span>
                    </div>
                 </div>
               </Reveal>
@@ -90,15 +90,15 @@ const Hero = ({ loaded, onNavigate }: { loaded: boolean, onNavigate: (view: View
            <div className={styles.heroRight}>
               <Reveal delay={1600} className={styles.heroIntroWrap}>
                 <p className={styles.heroIntro}>
-                   We architect <span className={styles.heroIntroEmphasis}>digital cathedrals</span>. 
-                   Forging artifacts that defy standard grid systems.
+                   Мы создаём <span className={styles.heroIntroEmphasis}>цифровые соборы</span>. 
+                   Куём артефакты, которые бросают вызов стандартным системам сеток.
                 </p>
               </Reveal>
               
               <Reveal delay={1800}>
                 <button onClick={() => onNavigate('work')} className={styles.heroCta} data-cursor-hover>
                    <span className={styles.heroCtaText}>
-                      Enter Archive
+                      Войти в Архив
                       <ArrowRight className={styles.heroCtaIcon} />
                    </span>
                    <div className={styles.heroCtaBg}></div>
@@ -114,21 +114,21 @@ const Hero = ({ loaded, onNavigate }: { loaded: boolean, onNavigate: (view: View
 const Manifesto = () => (
   <section className={styles.manifesto}>
      <div className={styles.manifestoContent}>
-        <SectionLabel>Manifesto</SectionLabel>
+        <SectionLabel>Манифест</SectionLabel>
         <Reveal>
           <p className={styles.manifestoQuote}>
-             &ldquo;The web has become <span className={styles.manifestoWhite}>static</span>. We are here to bring the <span className={styles.manifestoAccent}>kinetic</span>.&rdquo;
+             &ldquo;Веб стал <span className={styles.manifestoWhite}>статичным</span>. Мы здесь, чтобы вернуть <span className={styles.manifestoAccent}>кинетику</span>.&rdquo;
           </p>
         </Reveal>
         <div className={styles.manifestoGrid}>
            <Reveal delay={200}>
              <p>
-                We believe that digital experiences should adhere to the laws of physics. They should have weight, momentum, and resistance. When you interact with a Dioxoid interface, you are not just clicking buttons; you are manipulating a digital environment.
+                Мы верим, что цифровые переживания должны подчиняться законам физики. Они должны иметь вес, инерцию и сопротивление. Когда вы взаимодействуете с интерфейсом Dioxoid, вы не просто нажимаете кнопки; вы манипулируете цифровой средой.
              </p>
            </Reveal>
            <Reveal delay={400}>
              <p>
-                Our mission is to dismantle the template-driven internet and rebuild it with handcrafted code, bespoke interactions, and a level of polish that borders on the obsessive.
+                Наша миссия - разрушить шаблонный интернет и перестроить его вручную написанным кодом, индивидуальными взаимодействиями и уровнем полировки, граничащим с одержимостью.
              </p>
            </Reveal>
         </div>
@@ -140,10 +140,10 @@ const SelectedWork = ({ onNavigate, onCaseSelect }: { onNavigate: (view: ViewSta
      <section className={styles.selectedWork}>
          <div className={styles.selectedHeader}>
          <Reveal>
-            <SectionLabel>Selected Work</SectionLabel>
+            <SectionLabel>Избранные работы</SectionLabel>
          </Reveal>
             <button onClick={() => onNavigate('work')} className={styles.selectedButton} data-cursor-hover>
-            View All
+            Смотреть все
                <ArrowRight className={styles.selectedButtonIcon} />
          </button>
       </div>
@@ -175,7 +175,7 @@ const SelectedWork = ({ onNavigate, onCaseSelect }: { onNavigate: (view: ViewSta
       
          <div className={styles.workMobileCta}>
            <button onClick={() => onNavigate('work')} className={styles.workMobileButton} data-cursor-hover>
-            View Full Archive
+            Смотреть весь архив
                <ArrowRight className={styles.workMobileIcon} />
          </button>
       </div>
@@ -187,17 +187,17 @@ const Services = () => (
      <div className={styles.servicesGrid}>
         <div className={styles.servicesLeft}>
            <Reveal>
-             <SectionLabel>Capabilities</SectionLabel>
-             <H2 className={styles.servicesTitle}>Full Cycle<br/>Production.</H2>
-             <p className={styles.servicesDesc}>From the first spark of an idea to the final deployment on the edge network.</p>
+             <SectionLabel>Возможности</SectionLabel>
+             <H2 className={styles.servicesTitle}>Полный цикл<br/>производства.</H2>
+             <p className={styles.servicesDesc}>От первой искры идеи до финального развёртывания на граничной сети.</p>
            </Reveal>
         </div>
         <div className={styles.servicesList}>
            {[
-              { title: "Strategy", items: ["Brand Positioning", "Digital Transformation", "Market Analysis", "User Research"] },
-              { title: "Design", items: ["Art Direction", "UI/UX System", "Motion Design", "3D Asset Creation"] },
-              { title: "Engineering", items: ["WebGL / GLSL", "Full-Stack React", "Performance Optimization", "Headless CMS"] },
-              { title: "Content", items: ["Copywriting", "Technical Writing", "Video Production", "Sound Design"] }
+              { title: "Стратегия", items: ["Позиционирование бренда", "Цифровая трансформация", "Анализ рынка", "Исследование пользователей"] },
+              { title: "Дизайн", items: ["Арт-дирекция", "UI/UX система", "Моушн дизайн", "Создание 3D-ассетов"] },
+              { title: "Разработка", items: ["WebGL / GLSL", "Full-Stack React", "Оптимизация производительности", "Headless CMS"] },
+              { title: "Контент", items: ["Копирайтинг", "Техническая документация", "Видеопродукция", "Саунд-дизайн"] }
            ].map((s, i) => (
               <Reveal key={i} delay={i * 100}>
                 <div className={styles.serviceItem}>
@@ -241,14 +241,14 @@ const Process = ({ onNavigate }: { onNavigate: (view: ViewState) => void }) => (
      <section className={styles.process}>
         <div className={styles.processGrid}>
           <div>
-             <SectionLabel>Process</SectionLabel>
-              <H2 className={styles.processTitle}>The<br/>Algorithm.</H2>
+             <SectionLabel>Процесс</SectionLabel>
+              <H2 className={styles.processTitle}>Наш<br/>алгоритм.</H2>
           </div>
            <div className={styles.processSteps}>
              {[
-                "We deconstruct your reality.",
-                "We rebuild it with better physics.",
-                "We deploy to the global edge."
+                "Мы деконструируем вашу реальность.",
+                "Мы перестраиваем её с лучшей физикой.",
+                "Мы разворачиваем на глобальной сети."
              ].map((text, i) => (
                 <Reveal key={i} delay={i * 100}>
                     <div className={styles.processStep}>
@@ -267,7 +267,7 @@ const Process = ({ onNavigate }: { onNavigate: (view: ViewState) => void }) => (
              className={styles.processCtaButton}
              data-cursor-hover
           >
-             <span className={styles.processCtaText}>Start The Algorithm</span>
+             <span className={styles.processCtaText}>Запустить алгоритм</span>
              <div className={styles.processCtaIcon}>
                 <ArrowRight size={14} />
              </div>
@@ -278,7 +278,7 @@ const Process = ({ onNavigate }: { onNavigate: (view: ViewState) => void }) => (
 
 const Clients = () => (
      <section className={styles.clients}>
-      <SectionLabel>Network</SectionLabel>
+      <SectionLabel>Сеть</SectionLabel>
          <div className={styles.clientsGrid}>
          {["Apex", "Vertex", "Oura", "Nebula", "Quant", "Helix", "Sol", "Flux"].map((client, i) => (
                <div key={i} className={styles.clientsItem}>
@@ -310,7 +310,7 @@ const Reviews = ({ onNavigate }: { onNavigate: (view: ViewState) => void }) => (
                      <Zap size={32} className={styles.reviewsIcon} />
                </div>
                   <div className={styles.reviewsSignal}>
-                  Signal Detected
+                  Сигнал обнаружен
                </div>
                   <div className={styles.reviewsBars}>
                   {[...Array(5)].map((_, i) => (
@@ -328,18 +328,18 @@ const Reviews = ({ onNavigate }: { onNavigate: (view: ViewState) => void }) => (
 
          {/* Right: The Content */}
             <div className={styles.reviewsContent}>
-            <SectionLabel>Incoming Transmission</SectionLabel>
+            <SectionLabel>Входящая трансмиссия</SectionLabel>
                <h2 className={styles.reviewsQuote}>
-                  &ldquo;Dioxoid operates on a different frequency. They didn&apos;t just build a site; they built a <span className={styles.reviewsQuoteEmphasis}>cult object</span>.&rdquo;
+                  &ldquo;Dioxoid работает на другой частоте. Они не просто создали сайт; они создали <span className={styles.reviewsQuoteEmphasis}>культовый объект</span>.&rdquo;
             </h2>
             
                <div className={styles.reviewsFooter}>
                   <div className={styles.reviewsAuthor}>
                      <div className={styles.reviewsAvatar}>
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" className={styles.reviewsAvatarImg} alt="Sarah K." />
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" className={styles.reviewsAvatarImg} alt="Сара К." />
                   </div>
                   <div>
-                        <div className={styles.reviewsName}>Sarah K.</div>
+                        <div className={styles.reviewsName}>Сара К.</div>
                         <div className={styles.reviewsRole}>CTO, Vertex Financial</div>
                   </div>
                </div>
@@ -350,7 +350,7 @@ const Reviews = ({ onNavigate }: { onNavigate: (view: ViewState) => void }) => (
                      className={styles.reviewsCta}
                      data-cursor-hover
                   >
-                  Verify Signal
+                  Проверить сигнал
                      <div className={styles.reviewsCtaIcon}>
                      <ArrowUpRight size={14} />
                   </div>
@@ -368,12 +368,12 @@ const CTA = ({ onNavigate }: { onNavigate: (view: ViewState) => void }) => (
          <div className={styles.ctaContent}>
          <Reveal>
                <h2 className={styles.ctaTitle}>
-               START<br/>PROJECT
+               НАЧАТЬ<br/>ПРОЕКТ
             </h2>
          </Reveal>
          <Reveal delay={200}>
                <p className={styles.ctaText}>
-               Our schedule is calibrated for Q4. Initiate the protocol to secure your slot in the production queue.
+               Наш график настроен на Q4. Запустите протокол, чтобы закрепить своё место в очереди производства.
             </p>
          </Reveal>
          <Reveal delay={400}>
@@ -382,7 +382,7 @@ const CTA = ({ onNavigate }: { onNavigate: (view: ViewState) => void }) => (
                  className={styles.ctaButton}
                  data-cursor-hover
                >
-               Initiate Protocol
+               Инициировать протокол
             </button>
          </Reveal>
       </div>

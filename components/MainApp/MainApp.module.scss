@@ -1,13 +1,10 @@
-:global(::selection) {
-  background-color: rgb(16, 185, 129);
-  color: black;
-}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 .mainApp {
   min-height: 100vh;
   background-color: black;
   color: white;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Manrope", sans-serif;
   overflow-x: hidden;
 }
 

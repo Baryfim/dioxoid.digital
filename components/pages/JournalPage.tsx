@@ -12,7 +12,8 @@ const JournalPage = ({ onArticleSelect }: { onArticleSelect: (id: string) => voi
 
   const filteredPosts = useMemo(() => {
     return JOURNAL_DATA.filter(post => {
-      const matchesFilter = filter === 'All' || post.cat === filter;
+      const filterMap: {[key: string]: string} = {'Все': 'All', 'Теория': 'Теория', 'Дизайн': 'Дизайн', 'Инженерия': 'Инженерия', 'Будущее': 'Будущее'};
+      const matchesFilter = filter === 'Все' || post.cat === filterMap[filter] || post.cat === filter;
       const matchesSearch = post.title.toLowerCase().includes(search.toLowerCase());
       return matchesFilter && matchesSearch;
     });
@@ -21,12 +22,12 @@ const JournalPage = ({ onArticleSelect }: { onArticleSelect: (id: string) => voi
   return (
     <div className={styles.page}>
        <div className={styles.container}>
-          <SectionLabel>The Signal</SectionLabel>
-          <H2 className={styles.title}>Thoughts on<br/>Entropy.</H2>
+          <SectionLabel>Сигнал</SectionLabel>
+          <H2 className={styles.title}>Мысли о<br/>энтропии.</H2>
           
           <div className={styles.filtersRow}>
              <div className={styles.filters}>
-                {['All', 'Theory', 'Design', 'Engineering', 'Future'].map(f => (
+                {['Все', 'Теория', 'Дизайн', 'Инженерия', 'Будущее'].map(f => (
                    <button 
                      key={f} 
                      onClick={() => setFilter(f)}
@@ -40,7 +41,7 @@ const JournalPage = ({ onArticleSelect }: { onArticleSelect: (id: string) => voi
              <div className={styles.searchWrapper}>
                 <input 
                   type="text" 
-                  placeholder="Filter signals..." 
+                  placeholder="Фильтр сигналов..." 
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className={styles.searchInput}
@@ -63,8 +64,8 @@ const JournalPage = ({ onArticleSelect }: { onArticleSelect: (id: string) => voi
                          <div className={styles.postBody}>
                             <h3 className={styles.postTitle}>{post.title}</h3>
                             <div className={styles.postMeta}>
-                               <span className={styles.postMetaLink}>Read Article</span>
-                               <span className={styles.postMetaTime}>{post.readTime} read</span>
+                               <span className={styles.postMetaLink}>Читать статью</span>
+                               <span className={styles.postMetaTime}>{post.readTime} чтения</span>
                             </div>
                          </div>
                       </div>

@@ -10,9 +10,9 @@ const ContactPage = () => (
       
       <div className={styles.content}>
          <div>
-            <SectionLabel>Inquiry</SectionLabel>
+            <SectionLabel>Запрос</SectionLabel>
             <h2 className={styles.title}>
-               LET&apos;S<br/>TALK.
+               ДАВАЙТЕ<br/>ПОГОВОРИМ.
             </h2>
             <div className={styles.contactInfo}>
                <p>hello@dioxoid.studio</p>
@@ -22,7 +22,7 @@ const ContactPage = () => (
          
          <div className={styles.formWrap}>
             <form className={styles.form}>
-               {["Name", "Company", "Email", "Budget"].map(label => (
+               {["Имя", "Компания", "Email", "Бюджет"].map(label => (
                   <div key={label} className={styles.formField}>
                      <input 
                         type="text" 
@@ -36,7 +36,7 @@ const ContactPage = () => (
                ))}
                <div className={styles.submitWrap}>
                   <button type="button" className={styles.submitButton} data-cursor-hover>
-                     Send Transmission
+                     Отправить трансмиссию
                   </button>
                </div>
             </form>

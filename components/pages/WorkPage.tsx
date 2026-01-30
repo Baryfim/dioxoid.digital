@@ -13,7 +13,8 @@ const WorkPage = ({ onCaseSelect }: { onCaseSelect: (id: string) => void }) => {
 
   const filteredWorks = useMemo(() => {
     return WORKS_DATA.filter(work => {
-      const matchesFilter = filter === 'All' || work.cat === filter;
+      const filterMap: {[key: string]: string} = {'Все': 'All', 'Финтех': 'Финтех', 'Здоровье': 'Здоровье', 'Искусство': 'Искусство', 'Наука': 'Наука'};
+      const matchesFilter = filter === 'Все' || work.cat === filterMap[filter] || work.cat === filter;
       const matchesSearch = work.title.toLowerCase().includes(search.toLowerCase()) || 
                             work.cat.toLowerCase().includes(search.toLowerCase());
       return matchesFilter && matchesSearch;
@@ -24,15 +25,15 @@ const WorkPage = ({ onCaseSelect }: { onCaseSelect: (id: string) => void }) => {
      <div className={styles.page}>
        <div className={styles.header}>
          <div>
-          <SectionLabel>The Archive</SectionLabel>
-          <H2 className={styles.headerTitle}>Selected<br/>Artifacts.</H2>
+          <SectionLabel>Архив</SectionLabel>
+          <H2 className={styles.headerTitle}>Избранные<br/>артефакты.</H2>
          </div>
          <div className={styles.controls}>
            <div className={styles.searchWrapper}>
              <Search className={styles.searchIcon} />
              <input 
               type="text" 
-              placeholder="Search artifacts..." 
+              placeholder="Поиск артефактов..." 
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className={styles.searchInput}
@@ -41,7 +42,7 @@ const WorkPage = ({ onCaseSelect }: { onCaseSelect: (id: string) => void }) => {
            </div>
 
            <div className={styles.filters}>
-             {['All', 'Fintech', 'Health', 'Art', 'R&D'].map(f => (
+             {['Все', 'Финтех', 'Здоровье', 'Искусство', 'Наука'].map(f => (
                <button 
                 key={f} 
                 onClick={() => setFilter(f)}
@@ -66,7 +67,7 @@ const WorkPage = ({ onCaseSelect }: { onCaseSelect: (id: string) => void }) => {
 
        {filteredWorks.length === 0 ? (
         <div className={styles.emptyState}>
-          <p className={styles.emptyText}>No artifacts found.</p>
+          <p className={styles.emptyText}>Артефакты не найдены.</p>
         </div>
        ) : (
         <div className={`${styles.results} ${viewMode === 'grid' ? styles.resultsGrid : styles.resultsList}`}>

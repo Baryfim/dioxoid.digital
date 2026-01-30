@@ -7,19 +7,19 @@ import styles from './AppContent.module.scss';
 
 // --- DATA ---
 export const WORKS_DATA: WorkItem[] = [
-  { id: "apex", title: "Apex.Fin", cat: "Fintech", year: "2024", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1000", desc: "Institutional grade trading interface." },
-  { id: "oura", title: "Oura.AI", cat: "Health", year: "2023", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1000", desc: "Biometric visualization engine." },
-  { id: "void", title: "Void/Form", cat: "Architecture", year: "2024", img: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=1000", desc: "Spatial computing for architects." },
-  { id: "helios", title: "Helios", cat: "Energy", year: "2022", img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b0?auto=format&fit=crop&q=80&w=1000", desc: "Solar array management system." },
-  { id: "neura", title: "Neura", cat: "R&D", year: "2023", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000", desc: "Neural network topography." },
-  { id: "chroma", title: "Chroma", cat: "Art", year: "2024", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1000", desc: "Digital gallery experience." },
+  { id: "apex", title: "Apex.Fin", cat: "Финтех", year: "2024", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1000", desc: "Торговый интерфейс институционального уровня." },
+  { id: "oura", title: "Oura.AI", cat: "Здоровье", year: "2023", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1000", desc: "Система визуализации биометрических данных." },
+  { id: "void", title: "Void/Form", cat: "Архитектура", year: "2024", img: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=1000", desc: "Пространственные вычисления для архитекторов." },
+  { id: "helios", title: "Helios", cat: "Энергетика", year: "2022", img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b0?auto=format&fit=crop&q=80&w=1000", desc: "Система управления солнечными панелями." },
+  { id: "neura", title: "Neura", cat: "Наука", year: "2023", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000", desc: "Топография нейронных сетей." },
+  { id: "chroma", title: "Chroma", cat: "Искусство", year: "2024", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1000", desc: "Цифровая галерея." },
 ];
 
 export const JOURNAL_DATA: JournalItem[] = [
-  { id: "1", date: "Oct 12, 2024", title: "The End of Interface", cat: "Theory", readTime: "5 min", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" },
-  { id: "2", date: "Sep 28, 2024", title: "Motion as Meaning", cat: "Design", readTime: "3 min", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000" },
-  { id: "3", date: "Aug 15, 2024", title: "WebGL Performance at Scale", cat: "Engineering", readTime: "8 min", img: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=1000" },
-  { id: "4", date: "Jul 04, 2024", title: "Typography in VR", cat: "Future", readTime: "6 min", img: "https://images.unsplash.com/photo-1614850523060-8da1d56ae167?auto=format&fit=crop&q=80&w=1000" },
+  { id: "1", date: "12 окт, 2024", title: "Конец интерфейсов", cat: "Теория", readTime: "5 мин", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" },
+  { id: "2", date: "28 сен, 2024", title: "Движение как смысл", cat: "Дизайн", readTime: "3 мин", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000" },
+  { id: "3", date: "15 авг, 2024", title: "Производительность WebGL в масштабе", cat: "Инженерия", readTime: "8 мин", img: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=1000" },
+  { id: "4", date: "4 июл, 2024", title: "Типографика в VR", cat: "Будущее", readTime: "6 мин", img: "https://images.unsplash.com/photo-1614850523060-8da1d56ae167?auto=format&fit=crop&q=80&w=1000" },
 ];
 
 // --- COMPONENTS ---
@@ -130,7 +130,7 @@ export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     <div className={styles.preloader}>
       <div className={styles.preloaderContent}>
         <div className={styles.preloaderHeader}>
-          <ScrambleText text="INITIALIZING DIOXOID..." />
+          <ScrambleText text="ИНИЦИАЛИЗАЦИЯ DIOXOID..." />
           <span>{progress}%</span>
         </div>
         <div className={styles.preloaderProgress}>
@@ -151,7 +151,7 @@ export const FullScreenMenu = ({ isOpen, onClose, onNavigate }: { isOpen: boolea
      <div className={styles.fullScreenMenu}>
        <div className={styles.menuCloseWrapper}>
          <button onClick={onClose} className={styles.closeBtn} data-cursor-hover>
-           <span className={styles.closeText}>Close</span>
+           <span className={styles.closeText}>Закрыть</span>
            <div className={styles.closeIcon}>
              <X size={20} />
            </div>
@@ -161,11 +161,12 @@ export const FullScreenMenu = ({ isOpen, onClose, onNavigate }: { isOpen: boolea
        <div className={styles.menuContent}>
          <div className={styles.menuGrid}>
            <div className={styles.menuLinks}>
-             {['Home', 'Work', 'Journal', 'Contact'].map((item, i) => (
+             {['Главная', 'Работы', 'Журнал', 'Контакты'].map((item, i) => (
                <div key={item} className={styles.menuItem}>
                  <button 
                    onClick={() => {
-                     onNavigate(item.toLowerCase() as ViewState);
+                     const viewMap: {[key: string]: ViewState} = {'Главная': 'home', 'Работы': 'work', 'Журнал': 'journal', 'Контакты': 'contact'};
+                     onNavigate(viewMap[item]);
                      onClose();
                    }}
                    style={{ animationDelay: `${i * 100}ms` }}
@@ -179,7 +180,7 @@ export const FullScreenMenu = ({ isOpen, onClose, onNavigate }: { isOpen: boolea
              
            <div className={styles.menuInfo}>
              <div className={styles.infoSection} style={{ animationDelay: '500ms' }}>
-               <h4>Connect</h4>
+               <h4>Связь</h4>
                <div className={styles.socialLinks}>
                  <a href="#" data-cursor-hover>Twitter</a>
                  <a href="#" data-cursor-hover>LinkedIn</a>
@@ -187,10 +188,10 @@ export const FullScreenMenu = ({ isOpen, onClose, onNavigate }: { isOpen: boolea
                </div>
              </div>
              <div className={styles.infoSection} style={{ animationDelay: '700ms' }}>
-               <h4>Office</h4>
+               <h4>Офис</h4>
                <p className={styles.address}>
-                 Minato-ku, Tokyo<br/>
-                 107-0062, Japan
+                 Минато-ку, Токио<br/>
+                 107-0062, Япония
                </p>
              </div>
            </div>
@@ -208,10 +209,13 @@ export const Nav = ({ onNavigate, onMenuOpen }: { onNavigate: (view: ViewState) 
     </div>
     
     <div className={styles.navLinks}>
-      {['Work', 'Journal', 'Contact'].map((item) => (
+      {['Работы', 'Журнал', 'Контакты'].map((item) => (
         <button 
           key={item} 
-          onClick={() => onNavigate(item.toLowerCase() as ViewState)}
+          onClick={() => {
+            const viewMap: {[key: string]: ViewState} = {'Работы': 'work', 'Журнал': 'journal', 'Контакты': 'contact'};
+            onNavigate(viewMap[item]);
+          }}
           data-cursor-hover
         >
           <span className={styles.linkText}>{item}</span>
@@ -223,7 +227,7 @@ export const Nav = ({ onNavigate, onMenuOpen }: { onNavigate: (view: ViewState) 
     </div>
     
     <button onClick={onMenuOpen} className={styles.menuBtn} data-cursor-hover>
-      <span className={styles.menuText}>Menu</span>
+      <span className={styles.menuText}>Меню</span>
       <div className={styles.menuIcon}>
         <span />
         <span />
@@ -237,7 +241,7 @@ export const Footer = ({ onNavigate }: { onNavigate: (view: ViewState) => void }
     <div className={styles.footerContent}>
       <div className={styles.status}>
         <div className={styles.statusDot}></div>
-        <span className={styles.statusText}>Systems Online</span>
+        <span className={styles.statusText}>Системы онлайн</span>
       </div>
       <div className={styles.copyright}>
         Dioxoid Studio &copy; 2024
