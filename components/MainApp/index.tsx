@@ -109,6 +109,98 @@ const MainApp: React.FC = () => {
   const [activeArticleId, setActiveArticleId] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Initialize view from URL on first load
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const path = window.location.pathname;
+    
+    switch (true) {
+      case path === '/':
+        setCurrentView('home');
+        break;
+      case path === '/work':
+        setCurrentView('work');
+        break;
+      case path === '/journal':
+        setCurrentView('journal');
+        break;
+      case path === '/contact':
+        setCurrentView('contact');
+        break;
+      case path.startsWith('/case-study/'):
+        const caseId = path.split('/')[2];
+        setActiveCaseId(caseId);
+        setCurrentView('case-study');
+        break;
+      case path.startsWith('/article/'):
+        const articleId = path.split('/')[2];
+        setActiveArticleId(articleId);
+        setCurrentView('article');
+        break;
+      default:
+        setCurrentView('home');
+    }
+  }, []); // Run only once on mount
+
+  // Update URL when view changes without reloading
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const viewToUrl: Record<ViewState, string> = {
+      'home': '/',
+      'work': '/work',
+      'journal': '/journal',
+      'contact': '/contact',
+      'case-study': activeCaseId ? `/case-study/${activeCaseId}` : '/case-study',
+      'article': activeArticleId ? `/article/${activeArticleId}` : '/article',
+    };
+
+    const url = viewToUrl[currentView];
+    if (window.location.pathname !== url) {
+      window.history.pushState({}, '', url);
+    }
+  }, [currentView, activeCaseId, activeArticleId]);
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      
+      switch (true) {
+        case path === '/':
+          setCurrentView('home');
+          break;
+        case path === '/work':
+          setCurrentView('work');
+          break;
+        case path === '/journal':
+          setCurrentView('journal');
+          break;
+        case path === '/contact':
+          setCurrentView('contact');
+          break;
+        case path.startsWith('/case-study/'):
+          const caseId = path.split('/')[2];
+          setActiveCaseId(caseId);
+          setCurrentView('case-study');
+          break;
+        case path.startsWith('/article/'):
+          const articleId = path.split('/')[2];
+          setActiveArticleId(articleId);
+          setCurrentView('article');
+          break;
+        default:
+          setCurrentView('home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const handleNavigate = (view: ViewState) => {
     setCurrentView(view);
     setIsMenuOpen(false);
@@ -119,12 +211,20 @@ const MainApp: React.FC = () => {
 
   const handleCaseSelect = (id: string) => {
     setActiveCaseId(id);
-    handleNavigate('case-study');
+    setCurrentView('case-study');
+    setIsMenuOpen(false);
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   };
 
   const handleArticleSelect = (id: string) => {
     setActiveArticleId(id);
-    handleNavigate('article');
+    setCurrentView('article');
+    setIsMenuOpen(false);
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   };
 
   return (

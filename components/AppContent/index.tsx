@@ -2,8 +2,28 @@
 
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import { ViewState, WorkItem, JournalItem } from '../types';
 import styles from './AppContent.module.scss';
+
+// --- TYPES ---
+export type ViewState = 'home' | 'work' | 'journal' | 'contact';
+
+export interface WorkItem {
+  id: string;
+  title: string;
+  cat: string;
+  year: string;
+  img: string;
+  desc: string;
+}
+
+export interface JournalItem {
+  id: string;
+  date: string;
+  title: string;
+  cat: string;
+  readTime: string;
+  img: string;
+}
 
 // --- DATA ---
 export const WORKS_DATA: WorkItem[] = [

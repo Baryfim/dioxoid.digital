@@ -14,9 +14,11 @@ const Hero = ({ loaded, onNavigate }: { loaded: boolean, onNavigate: (view: View
   const handleMouseMove = (e: React.MouseEvent) => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
+      const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+      const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
       setMousePos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
+        x: xPercent,
+        y: yPercent,
       });
     }
   };
@@ -41,6 +43,14 @@ const Hero = ({ loaded, onNavigate }: { loaded: boolean, onNavigate: (view: View
          <div className={styles.heroGrid}></div>
       </div>
 
+      {/* Spotlight Effect */}
+      <div 
+        className={styles.heroSpotlight}
+        style={{
+          background: `radial-gradient(500px circle at ${mousePos.x}% ${mousePos.y}%, rgba(52, 211, 153, 0.25), transparent 60%)`
+        }}
+      />
+
       <div className={styles.heroContent}>
         <Reveal delay={1200}>
           <div className={styles.heroStatus}>
@@ -55,14 +65,6 @@ const Hero = ({ loaded, onNavigate }: { loaded: boolean, onNavigate: (view: View
 
         {/* MOUSE REVEAL TITLE */}
         <div className={styles.heroTitleWrap}>
-           {/* Spotlight Effect */}
-           <div 
-             className={styles.heroSpotlight}
-             style={{
-               background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(52, 211, 153, 0.25), transparent 60%)`
-             }}
-           />
-           
            <h1 className={styles.heroTitlePrimary} style={{ animationDelay: '500ms' }}>
               DIOXOID
            </h1>

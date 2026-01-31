@@ -12,7 +12,7 @@ const ContactPage = () => (
          <div>
             <SectionLabel>Запрос</SectionLabel>
             <h2 className={styles.title}>
-               ДАВАЙТЕ<br/>ПОГОВОРИМ.
+               LET'S<br/>TALK.
             </h2>
             <div className={styles.contactInfo}>
                <p>hello@dioxoid.studio</p>
