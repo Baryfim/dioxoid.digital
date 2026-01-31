@@ -2,10 +2,11 @@
 
 import React, { useState } from 'react';
 import { ArrowUpRight, Plus } from 'lucide-react';
-import { H3, Paragraph } from './Typography';
+import { H3, Paragraph } from '../Typography';
 import styles from './LayoutComponents.module.scss';
 
 // --- Signature Card (Dark Mode Adapted) ---
+
 interface SignatureCardProps {
   category: string;
   title: string;
